@@ -1,0 +1,7 @@
+{
+  "delete": true,
+  "directory": "./src/controllers",
+  "include": [".+.ts$"],
+  "exclude": [".spec.ts$"],
+  "location": "all"
+}

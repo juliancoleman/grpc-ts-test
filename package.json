@@ -1,0 +1,24 @@
+{
+  "name": "grpc-test",
+  "scripts": {
+    "generate:protobuf": "protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --js_out=import_style=commonjs,binary:src/generated --ts_out=service=true:src/generated -I ./src/protos ./src/protos/*.proto",
+    "generate:barrels": "barrelsby -c barrelsby.json",
+    "scaffold": "mkdir -p ./src/generated",
+    "start": "npm run scaffold && npm run generate:protobuf && ts-node src/server.ts"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.0",
+    "@improbable-eng/grpc-web": "^0.9.5",
+    "bluebird": "^3.5.4",
+    "grpc": "^1.20.3"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.26",
+    "@types/node": "^12.0.0",
+    "barrelsby": "^2.1.1",
+    "google-protobuf": "^3.8.0-rc.1",
+    "ts-node": "^8.1.0",
+    "ts-protoc-gen": "^0.9.0",
+    "typescript": "^3.4.5"
+  }
+}
